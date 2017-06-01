@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<%@ include file="header.jsp"%>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+.gallery2 {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}</script>
+<body>
+	<div class="checkout">
+		<div class="container">
+			<h3>My Shopping Bag</h3>
+			<div class="row">	
+ 	<div class="col-xs-12 col-md-4 col-sm-4">	
+ 		<input class="form-control" type="text" ng-model="search" placeholder="Search..." /> 		
+ 	</div>
+ </div>
+			<div class="table-responsive checkout-right animated wow slideInUp"
+				data-wow-delay=".5s">
+				<table class="timetable_sub">
+					<thead>
+						<tr>
+							<th>Product Image</th>
+							<th>Product Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Total Amount of your All product</th>
+							<th>Operations</th>
+						</tr>
+					</thead>
+					<c:forEach items="${cartList}" var="cart">
+					<tr class="rem1">
+						
+						 <td class="invert-image "><a href="single.html" class="gallery2"><img
+								  src="${pageContext.request.contextPath }/resources/images/product/${cart.productId}_0.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert">${cart.productName}</td>
+						<td class="invert"> &#8377;${cart.rate}</td>
+						<td class="invert">${cart.quantity}</td>
+						<td class="invert"> &#8377; ${cart.amount}</td>
+						<td>
+			<a href="viewProductById-{{cilist.productId}}" class="btn btn-info"  title="View Product Full Details" role="button"><i class="fa fa-eye" aria-hidden="true"></i>info</a>
+			<a href="deleteFromCart-{{cilist.cartItemId}}" class="btn btn-danger" title="Remove item from cart" role="button"><i class="fa fa-times fa-1x" aria-hidden="true"></i>del</a>
+		</td>
+					</c:forEach>
+				</table>
+			</div>
+			<div class="checkout-left">
+
+				<div class="checkout-right-basket animated wow slideInRight"
+					data-wow-delay=".5s">
+					<a href="mens.html"><span class="glyphicon glyphicon-menu-left"
+						aria-hidden="true"></span>Back To Shopping</a>
+				</div>
+				<div class="checkout-left-basket animated wow slideInLeft"
+					data-wow-delay=".5s">
+					<h4>Shopping basket</h4>
+					<ul>
+						<li>Hand Bag <i>-</i> <span>$45.99</span></li>
+						<li>Watches <i>-</i> <span>$45.99</span></li>
+						<li>Sandals <i>-</i> <span>$45.99</span></li>
+						<li>Wedges <i>-</i> <span>$45.99</span></li>
+						<li>Total <i>-</i> <span>$183.96</span></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+var a=angular.module('myApp',[]);
+a.controller('myController', function($scope){
+$scope.myscope= ${cartListByJson}
+});
+</script> 
+</body>
+</html>

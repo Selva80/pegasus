@@ -1,0 +1,5 @@
+package com.pegasus.Dao;
+
+public interface UsersDao {
+
+}

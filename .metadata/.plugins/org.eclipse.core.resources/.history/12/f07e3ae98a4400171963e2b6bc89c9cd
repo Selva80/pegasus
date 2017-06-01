@@ -1,0 +1,13 @@
+package com.pegasus.serviceImp;
+
+import com.pegasus.model.Supplier;
+import com.pegasus.service.SupplierService;
+
+public class SupplierServiceImp implements SupplierService {
+
+	public void addSupplier(Supplier supplier) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

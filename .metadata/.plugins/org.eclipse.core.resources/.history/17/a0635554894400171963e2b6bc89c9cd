@@ -1,0 +1,18 @@
+package com.pegasus.model;
+
+import java.io.Serializable;
+
+public class Supplier implements Serializable 
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private int supplierId;
+	
+	@NotEmpty(message="Supplier Name can not be empty")
+	private String supplierName;
+
+}

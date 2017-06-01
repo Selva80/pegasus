@@ -1,0 +1,23 @@
+package com.pegasus.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.pegasus.service.SupplierService;
+
+@Controller
+public class SupplierController {
+
+	@Autowired
+	 private SupplierService supplierService;
+	
+	@RequestMapping("/admin/supplier/supplierPage")
+	public String getSupplierPage(Model model)
+	{
+		
+		return "suppliers";
+	}
+
+}

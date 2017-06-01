@@ -1,0 +1,27 @@
+package com.pegasus.DaoImp;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.pegasus.Dao.BillingAddressDao;
+import com.pegasus.model.BillingAddress;
+@Repository
+public class BillingAddressDaoImp implements BillingAddressDao {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public List<BillingAddress> getAllBilling() {
+		Session session=sessionFactory.openSession();
+	    Query query=session.createQuery("from BillingAddress");
+	    List<BillingAddress> billingAddress = query.list();
+	    session.close();
+		return billingAddress;
+	}
+
+}

@@ -1,0 +1,135 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<%@ include file="Navbar.jsp" %>
+
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login Form Template</title>
+			<link  rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css">
+			<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Angular Js -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<link
+	href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"
+	rel="stylesheet">
+        <!-- CSS -->
+        
+
+        
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+            <div class="inner-bg">
+                <div class="container card">
+                    
+                    <div class="row card" >
+                        <div class="col-sm-8 col-sm-offset-3 form-box ">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Login to our site</h3>
+                            		<p>Enter your username and password to log on:</p>
+                        		</div>
+                        		<h3 style="color:blue">${registrationSuccess }</h3>
+                        		<h3 style="color:red">${ error}</h3>
+                        		<h3 style="color:blue ">${logout }</h3>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well login-box">
+                <form action="<c:url value="j_spring_security_check"></c:url>"method="post" class="login-form">
+                    <legend>Login</legend>
+                    <div class="form-group">
+                        <label for="j_username"> Username</label>
+                        <input name="j_username"  placeholder="E-mail or Username" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="j_password">Password</label>
+                        <input name="j_password"  placeholder="Password" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-danger btn-cancel-action">Cancel</button>
+                        <input type="submit" class="btn btn-success btn-login-submit" value="Login" />
+                    </div>
+                </form>
+            </div>
+          <div class="logged-in well">
+            <h1>You are loged in! <div class="pull-right"><button class="btn-logout btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button></div></h1>
+          </div>
+        </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                        	<h3>...or login with:</h3>
+                        	<div class="social-login-buttons">
+	                        	<a class="btn btn-primary" href="#">
+	                        		<i class="fa fa-facebook"></i> Facebook
+	                        	</a>
+	                        	<a class="btn btn-info" href="#">
+	                        		<i class="fa fa-twitter"></i> Twitter
+	                        	</a>
+	                        	<a class="btn btn-danger" href="#">
+	                        		<i class="fa fa-google-plus"></i> Google Plus
+	                        	</a>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!-- Javascript -->
+        
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

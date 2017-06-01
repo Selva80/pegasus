@@ -1,0 +1,48 @@
+package com.pegasus.controller;
+
+import java.security.Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.pegasus.model.CartItem;
+import com.pegasus.model.Product;
+import com.pegasus.service.CartItemService;
+import com.pegasus.service.ProductService;
+
+@Controller
+public class CartController {
+		
+	@Autowired
+	private CartItemService cartItemService;
+	
+	@Autowired
+	private ProductService productService;
+	
+		@RequestMapping("/user/addToCart/{id}")
+		public String addToCart(@PathVariable(name="id") int id,Principal p,CartItem cartItem)
+		{
+		System.out.println(p.getName());
+		System.out.println(id);
+		String uname=p.getName();
+	
+		
+			Product product=productService.getProductById(id);
+			
+			cartItem.setProductName(product.getPname());
+			cartItem.setRate(product.getPrice());
+			cartItem.setQuantity(1);
+			cartItem.setProductId(id);
+			cartItem.setAmount(cartItem.getRate()*cartItem.getQuantity());
+			
+			
+			
+			int pid= product.getPid();
+			
+		
+			return "";
+		}
+	
+}

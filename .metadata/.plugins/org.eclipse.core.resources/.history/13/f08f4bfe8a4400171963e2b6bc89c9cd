@@ -1,0 +1,13 @@
+package com.pegasus.DaoImp;
+
+import com.pegasus.Dao.SupplierDao;
+import com.pegasus.model.Supplier;
+
+public class SupplierDaoImp implements SupplierDao {
+
+	public void addSupplier(Supplier supplier) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

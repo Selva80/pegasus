@@ -1,0 +1,148 @@
+package com.pegasus.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
+
+
+@Entity
+public class Product implements Serializable
+{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+ private int pid;
+
+@NotEmpty(message="Product name is mandatory")
+private  String pname;
+@NotEmpty(message="Product details is mandatory")
+private String pdesc;
+@NotEmpty(message="Manufacturer details is mandatory")
+private String manufacture;
+@Min(value=1,message="There should be atleast 1 unit in Stock")
+private int inStock;
+@Min(value=99,message="Minimum price should be 99")
+private float price;
+
+@NotEmpty
+private String pweight;
+
+
+
+@NotEmpty(message="Warranty cannot be left empty")
+private String pWarranty;
+
+@NotEmpty(message="Colour is manadatory")
+private String pColor;
+
+@ManyToOne
+
+private Category category;
+
+
+@Transient
+private MultipartFile image[] = new MultipartFile[5];
+
+
+
+public Product() {
+	
+}
+public int getPid() {
+	return pid;
+}
+public void setPid(int pid) {
+	this.pid = pid;
+}
+public String getPname() {
+	return pname;
+}
+public void setPname(String pname) {
+	this.pname = pname;
+}
+public String getPdesc() {
+	return pdesc;
+}
+public void setPdesc(String pdesc) {
+	this.pdesc = pdesc;
+}
+public String getManufacture() {
+	return manufacture;
+}
+public void setManufacture(String manufacture) {
+	this.manufacture = manufacture;
+}
+public int getInStock() {
+	return inStock;
+}
+public void setInStock(int inStock) {
+	this.inStock = inStock;
+}
+public float getPrice() {
+	return price;
+}
+public void setPrice(float price) {
+	this.price = price;
+}
+
+public String getPweight() {
+	return pweight;
+}
+public void setPweight(String pweight) {
+	this.pweight = pweight;
+}
+
+public MultipartFile[] getImage() {
+	return image;
+}
+public void setImage(MultipartFile[] image) {
+	this.image = image;
+}
+public Category getCategory() {
+	return category;
+}
+public void setCategory(Category category) {
+	this.category = category;
+}
+
+
+
+public String getpWarranty() {
+	return pWarranty;
+}
+public void setpWarranty(String pWarranty) {
+	this.pWarranty = pWarranty;
+}
+public String getpColor() {
+	return pColor;
+}
+public void setpColor(String pColor) {
+	this.pColor = pColor;
+}
+
+ 
+
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
+
+
+}
+

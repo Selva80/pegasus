@@ -1,0 +1,12 @@
+package com.pegasus.service;
+
+import java.util.List;
+
+import com.pegasus.model.Category;
+import com.pegasus.model.Customer;
+
+public interface CategoryService 
+{
+	List<Category> getAllCategories();
+	 void updateCustomer(Customer customer);
+}

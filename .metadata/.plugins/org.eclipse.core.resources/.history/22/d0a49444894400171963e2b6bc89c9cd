@@ -1,0 +1,5 @@
+package com.pegasus.model;
+
+public class Supplier {
+
+}

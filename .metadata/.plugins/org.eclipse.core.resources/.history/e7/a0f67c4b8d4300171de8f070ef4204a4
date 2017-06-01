@@ -1,0 +1,321 @@
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   <%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
+   <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<html>
+
+<%@ include file="header.jsp" %>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link  rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/registration.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/registration.js"></script>
+
+</head>
+<body style="background-image: url('./resources/images/backgroundimage.jpg');">
+<url:url value="/all/customer/registerform/${customer.custId }" var="url"></url:url>
+<form:form modelAttribute="customer"  method="post" action="${url }">
+<div class="row main">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<label for="pid"></label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<form:hidden path="custId" ></form:hidden>
+			</div>
+			
+			
+		</div>
+<br>
+<br>
+<br>
+<div class="container card"  style="background-color: white;">
+<br>
+<div class="panel panel-primary">
+<div class="panel-heading">
+		        <h2>
+		        Customer Details
+		        </h2>
+		        </div>
+		        <br>
+	<div class="row">
+        <div class="col-md-5">
+            <form action="" method="post" id="fileForm" role="form">
+            <fieldset><legend class="text-center"><div class="panel panel-info "><div class="panel-heading">
+		        <h3>
+		        Personal Details
+		        </h3>
+		        </div>
+		        </div></legend>
+
+            <div class="form-group">
+            <label for="phone">Enter your current Mobile Number: </label>
+            
+               
+                    <form:input  path = "phone"  type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder=" ${customer.phone}"/> 
+            		<form:errors path="phone" cssStyle="color:red"></form:errors>
+            
+            </div>
+
+            <div class="form-group"> 	 
+                <label for="cFirstName"><i class="fa-id-card-o"></i>Enter your First name: </label>
+                
+                
+                    <form:input  path="cFirstName" class="form-control" type="text" name="firstname" id = "txt" placeholder="${customer.cFirstName}" onkeyup = "Validate(this)"  /> 
+                       <form:errors path="cFirstName" cssStyle="color:red"></form:errors>
+                        <div id="errFirst"></div>    
+            
+			</div>
+            <div class="form-group">
+                <label for="cLastName">Enter your Last name: </label> 
+                
+                    <form:input path="cLastName" class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="${customer.cLastName}"  />  
+                        <form:errors path="cLastName" cssStyle="color:red"></form:errors>
+                        <div id="errLast"></div>
+            
+            </div>
+
+            <div class="form-group">
+                <label for="cEmail">Enter the Email Address: </label>
+                
+                 
+                    <form:input path="cEmail" class="form-control"  placeholder="${customer.cEmail}" type="text" name="email" id = "email"  onchange="email_validate(this.value);" />   
+                     <form:errors path="cEmail" cssStyle="color:red"></form:errors>  
+                     <span style="color:red">${duplicateEmail}</span>
+                        <div class="status" id="status" style="color:red"></div>
+            
+            </div>
+            <div class="form-group">
+                
+                
+                    <form:hidden path="users.uid" />
+                        
+           
+            </div>
+
+            <div class="form-group">
+                <label for="users.username"><span class="req"><i class="fa-id-card-o"></i> </span> User name:  <small>This will be your login user name</small> </label> 
+                   
+                
+                    <form:input path="users.username" class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters"  />  
+                        <form:errors path="users.username" cssStyle="color:red"></form:errors> 
+                        <span style="color:red">${duplicateUsername}</span>
+                        <div id="errLast"></div>
+           
+            </div>
+
+            <div class="form-group">
+                <label for="users.password"> Password: </label>
+                
+                
+                    <form:input path="users.password"  placeholder="Password" name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> 
+					
+                <label for="password"> Password Confirm: </label>
+                
+                    <input  name="password" type="password" class="form-control inputpass"  placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;" />
+                        <span id="confirmMessage" class="confirmMessage"></span>
+            
+            </div>
+
+            <div class="form-group">
+            
+               
+                
+                <input type="hidden" value="0" name="activate" />
+                <hr>
+
+                <input type="checkbox"  name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="terms.php" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
+            </div>
+
+            
+                      <h5>You will receive an email to complete the registration and validation process. </h5>
+                      <h5>Be sure to check your spam folders. </h5>
+ 
+
+            </fieldset>
+            </form><!-- ends register form -->
+
+<script type="text/javascript">
+  document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+</script>
+        </div>
+        <!-- ends col-6 -->
+   
+            <div class="col-md-6">
+                <div class="col-md-11 col-md-offset-1">
+      <div class="form-horizontal" role="form">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend><div class="panel panel-info "><div class="panel-heading">
+		        <h3>
+		        Billing Address Details
+		        </h3>
+		        </div>
+		        </div></legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+                
+                
+                    <form:hidden path="billingAddress.id"   />  
+                        
+           
+            </div>
+          <div class="form-group">
+            <label  for="billingAddress.apartmentnumber" class="col-sm-3 control-label" for="textinput">Appartment Number</label>
+            <div class="col-sm-9">
+              <form:input path="billingAddress.apartmentnumber" type="text" placeholder="Address Line 1" class="form-control"></form:input>
+            	<form:errors path="billingAddress.apartmentnumber" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label  for ="billingAddress.streetname "class="col-sm-3 control-label" for="textinput">Street Name</label>
+            <div class="col-sm-9">
+              <form:input path="billingAddress.streetname" type="text" placeholder="Address Line 2" class="form-control"></form:input>
+            	<form:errors path="billingAddress.streetname" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label  for="billingAddress.city" class="col-sm-3 control-label" for="textinput">City</label>
+            <div class="col-sm-9">
+              <form:input path="billingAddress.city" type="text" placeholder="City" class="form-control"></form:input>
+              <form:errors path="billingAddress.city" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="billingAddress.state" class="col-sm-3 control-label" for="textinput">State</label>
+            <div class="col-sm-4">
+              <form:input path="billingAddress.state" placeholder="State" class="form-control"></form:input>
+              <form:errors path="billingAddress.state" cssStyle="color:red"></form:errors>
+            </div>
+
+            <label for="billingAddress.zipcode" class="col-sm-2 control-label" for="textinput">pincode</label>
+            <div class="col-sm-3">
+              <form:input path="billingAddress.zipcode" placeholder="pin Code" class="form-control"></form:input>
+              <form:errors path="billingAddress.zipcode" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label for="billingAddress.country" class="col-sm-3 control-label" for="textinput">Country</label>
+            <div class="col-sm-9">
+              <form:input path="billingAddress.country" type="text" placeholder="Country" class="form-control"></form:input>
+            	<form:errors path="billingAddress.country" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+         
+			<br>
+        </fieldset>
+      </div>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+<div class="col-md-6">
+                <div class="col-md-11 col-md-offset-1">
+      <div class="form-horizontal" role="form">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend><div class="panel panel-info "><div class="panel-heading">
+		        <h3>
+		        Shipping Address Details
+		        </h3>
+		        </div>
+		        </div></legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+                
+                
+                    <form:hidden path="shippingAddress.id"  />  
+                        
+           
+            </div>
+          <div class="form-group">
+            <label  for="shippingAddress.apartmentnumber" class="col-sm-3 control-label" for="textinput">Appartment Number</label>
+            <div class="col-sm-9">
+              <form:input path="shippingAddress.apartmentnumber" type="text" placeholder="Address Line 1" class="form-control"></form:input>
+            	<form:errors path="shippingAddress.apartmentnumber" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label  for ="shippingAddress.streetname "class="col-sm-3 control-label" for="textinput">Street Name</label>
+            <div class="col-sm-9">
+              <form:input path="shippingAddress.streetname" type="text" placeholder="Address Line 2" class="form-control"></form:input>
+            	<form:errors path="shippingAddress.streetname" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label  for="shippingAddress.city" class="col-sm-3 control-label" for="textinput">City</label>
+            <div class="col-sm-9">
+              <form:input path="shippingAddress.city" type="text" placeholder="City" class="form-control"></form:input>
+              <form:errors path="shippingAddress.city" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="shippingAddress.state" class="col-sm-3 control-label" for="textinput">State</label>
+            <div class="col-sm-4">
+              <form:input path="shippingAddress.state" placeholder="State" class="form-control"></form:input>
+              <form:errors path="shippingAddress.state" cssStyle="color:red"></form:errors>
+            </div>
+
+            <label for="shippingAddress.zipcode" class="col-sm-2 control-label" for="textinput">pincode</label>
+            <div class="col-sm-3">
+              <form:input path="shippingAddress.zipcode" placeholder="pin Code" class="form-control"></form:input>
+              <form:errors path="shippingAddress.zipcode" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label for="shippingAddress.country" class="col-sm-3 control-label" for="textinput">Country</label>
+            <div class="col-sm-9">
+              <form:input path="shippingAddress.country" type="text" placeholder="Country" class="form-control"></form:input>
+            	<form:errors path="shippingAddress.country" cssStyle="color:red"></form:errors>
+            </div>
+          </div>
+
+          <br><br>
+
+        </fieldset>
+      </div>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+                
+            </div>
+
+	</div>
+	<div class="form-group">
+                <input class="btn btn-success " type="submit" name="submit_reg" value="Register">
+                <input class="btn btn-info" type="reset"  value="Cancel">
+            </div>
+	</div>
+	
+</form:form>
+<br>
+<br>
+<br>
+<br>
+ 
+
+</body>
+<%@ include file="footer.jsp" %>
+</html>

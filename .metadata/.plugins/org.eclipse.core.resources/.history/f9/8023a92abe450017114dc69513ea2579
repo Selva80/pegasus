@@ -1,0 +1,68 @@
+package com.pegasus.controller;
+
+import java.security.Principal;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.pegasus.model.CartItem;
+import com.pegasus.model.Product;
+import com.pegasus.model.Users;
+import com.pegasus.service.CartItemService;
+import com.pegasus.service.ProductService;
+import com.pegasus.service.UsersService;
+
+@Controller
+public class CartController {
+
+	@Autowired
+	private CartItemService cartItemService;
+
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private UsersService usersService;
+
+	@RequestMapping("/user/addToCart/{id}")
+	public String addToCart(@PathVariable(name = "id") int id, Principal p, CartItem cartItem) {
+		System.out.println(p.getName());
+		System.out.println(id);
+		String uname = p.getName();
+		Users user = usersService.getUserByusername(uname);
+		 int uid=user.getUid();
+
+		cartItem.setUserId(uid);
+		cartItem.setCartId(uid);
+		
+		Product product = productService.getProductById(id);
+		cartItem.setProductId(product.getPid());
+		cartItem.setProductName(product.getPname());
+		cartItem.setRate(product.getPrice());
+		cartItem.setQuantity(1);
+		cartItem.setProductId(id);
+		cartItem.setAmount(cartItem.getRate() * cartItem.getQuantity());
+
+		Date d = new Date();
+		cartItem.setDateOrdered(d);
+
+		cartItem.setFlag("N");
+		cartItemService.addToCart(cartItem);
+
+		return "home";
+	}
+	@RequestMapping("/checkout")
+	public String checkout(Principal p ,Model model)
+	{
+		String uname = p.getName();
+		Users user = usersService.getUserByusername(uname);
+		 int uid=user.getUid();
+		 model.addAttribute("cartListByJson", cartItemService. fetchCartItemsByuserIdByJson(uid));
+		
+		return "checkout";
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.pegasus.Dao;
+
+import com.pegasus.model.Users;
+
+public class UsersDao {
+
+	public Users getUserByusername();
+	
+}

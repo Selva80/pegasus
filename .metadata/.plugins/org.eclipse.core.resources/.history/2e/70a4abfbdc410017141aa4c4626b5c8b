@@ -1,0 +1,21 @@
+package com.pegasus.serviceImp;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pegasus.Dao.BillingAddressDao;
+import com.pegasus.model.BillingAddress;
+import com.pegasus.service.BillingAddressService;
+
+@Service
+public class BillingAddressServiceImp implements BillingAddressService {
+	@Autowired
+	 BillingAddressDao billingAddressDao;
+	public List<BillingAddress> getAllBilling() {
+		return	billingAddressDao.getAllBilling();
+		 
+	}
+
+}

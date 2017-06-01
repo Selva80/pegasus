@@ -1,0 +1,15 @@
+package com.pegasus.DaoImp;
+
+import java.util.List;
+
+import com.pegasus.Dao.BillingAddressDao;
+import com.pegasus.model.BillingAddress;
+
+public class BillingAddressDaoImp implements BillingAddressDao {
+
+	public List<BillingAddress> getAllBilling() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,127 @@
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+ 
+<html>
+<%@ include file="Navbar.jsp" %>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Pegasus</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/viewProduct.css">
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="container">
+		<div class="panel panel-primary">
+<div class="panel-heading">
+		        <h3> Details of ${customer.cFirstName}
+		        </h3>
+		    </div>
+    <div class="row col-md-12 col-md-offset-0 custyle">
+    <table class="table table-striped custab" >
+    
+    <tr>
+    <th class="sel">Customer Id</th>
+    <td>${customer.custId }</td>
+    </tr>
+    <tr>
+    <th class="sel"> First Name</th>
+    <td>${customer.cFirstName }</td>
+    </tr>
+    <tr>
+    <th class="sel"> Last Name</th>
+    <td colspan="2">${customer.cLastName }</td>
+    </tr>
+    <tr>
+    <th class="sel">Email Address</th>
+    <td>${customer.cEmail }</td>
+    </tr>
+    <tr>
+    <th class="sel">Phone Number</th>
+    <td>${customer.phone }</td>
+    </tr>
+    <tr>
+    <th class="sel">User Name</th>
+    <td>${customer.users.username }</td>
+    </tr>
+    <tr>
+    <th class="sel">Password</th>
+    <td>${customer.users.password }</td>
+    </tr>
+    <tr>
+    <th class="sel">Apartment Number</th>
+    <td>${billingAddress.apartmentnumber}</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Colour</th>
+    <td>${billingAddress.streetname }</td>
+    </tr>
+    
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${billingAddress.city }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${customer.billingAddress.country }</td>
+    </tr>
+  
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${customer.billingAddress.zipcode }</td>
+    </tr>
+    <tr>
+    <th class="sel">Apartment Number</th>
+    <td>${customer.shippingAddress.apartmentnumber}</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Colour</th>
+    <td>${customer.shippingAddress.streetname }</td>
+    </tr>
+    
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${customer.shippingAddress.city }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${customer.shippingAddress.country }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${customer.shippingAddress.zipcode }</td>
+    </tr>
+    
+    
+    
+    
+   
+    </table>
+    <url:url value="/all/product/addProduct" var="url1"></url:url>
+<form:form  action="${url1}"  method="post">
+   <button type="submit"  class="btn btn-primary btn-block login-button">Add a new Product</button>
+    </form:form>
+    <br>
+    <url:url value="/all/product/productList" var="url2"></url:url>
+<form:form  action="${url2}" method="post">
+   <button type="submit"  class="btn btn-primary btn-block login-button">View all Products</button>
+    </form:form>
+    
+   
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>

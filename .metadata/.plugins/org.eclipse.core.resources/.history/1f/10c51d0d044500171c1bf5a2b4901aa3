@@ -1,0 +1,13 @@
+package com.pegasus.serviceImp;
+
+import com.pegasus.model.CartItem;
+import com.pegasus.service.CartItemService;
+
+public class CartItemServiceImp implements CartItemService {
+
+	public void addToCart(CartItem cartItem) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

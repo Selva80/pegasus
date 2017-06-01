@@ -1,0 +1,8 @@
+package com.pegasus.service;
+
+import com.pegasus.model.CartItem;
+
+public interface CartItemService {
+		
+	public void addToCart(CartItem cartItem);
+}

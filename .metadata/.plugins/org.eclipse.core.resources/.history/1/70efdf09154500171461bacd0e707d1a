@@ -1,0 +1,13 @@
+package com.pegasus.serviceImp;
+
+import com.pegasus.model.Users;
+import com.pegasus.service.UsersService;
+
+public class UsersServiceImp implements UsersService {
+
+	public Users getUserByusername(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

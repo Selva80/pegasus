@@ -1,0 +1,34 @@
+@CHARSET "ISO-8859-1";
+.sel
+ {
+ font-family: TimesNewRoman;
+ }
+ 
+ 
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 280px;
+}
+div.gallery2 {
+    margin: 0px;
+    border: 1px solid #ccc;
+    float: inherit;
+    width: 320px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}

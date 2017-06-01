@@ -1,0 +1,24 @@
+package com.pegasus.DaoImp;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.pegasus.Dao.SupplierDao;
+import com.pegasus.model.Supplier;
+
+@Repository
+public class SupplierDaoImp implements SupplierDao {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	public void addSupplier(Supplier supplier) {
+			Session session=sessionFactory.openSession();
+			session.save(supplier);
+			session.flush();
+			session.close();
+		
+	}
+
+}

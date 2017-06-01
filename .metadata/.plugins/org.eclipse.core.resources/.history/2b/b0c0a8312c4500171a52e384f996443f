@@ -1,0 +1,30 @@
+package com.pegasus.DaoImp;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.pegasus.Dao.UsersDao;
+import com.pegasus.model.Users;
+
+@Repository
+public class UsersDaoImp implements UsersDao{
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	
+	public Users getUserByusername(String userName) 
+	{
+		Session session =sessionFactory.openSession();
+		List<Users> user = session.createQuery("from User where username = "+"'"+userName+"'").list();	
+		session.close();
+		
+		return user.get(0);
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.pegasus.serviceImp;
+
+import java.util.List;
+
+import com.pegasus.model.BillingAddress;
+import com.pegasus.service.BillingAddressService;
+
+public class BillingAddressServiceImp implements BillingAddressService {
+
+	public List<BillingAddress> getAllBilling() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

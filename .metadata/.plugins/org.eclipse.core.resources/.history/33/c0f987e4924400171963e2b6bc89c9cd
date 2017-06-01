@@ -1,0 +1,34 @@
+package com.pegasus.serviceImp;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pegasus.Dao.SupplierDao;
+import com.pegasus.model.Supplier;
+import com.pegasus.service.SupplierService;
+
+@Service
+public class SupplierServiceImp implements SupplierService {
+	
+	@Autowired
+	 private SupplierDao supplierDao;
+	public void addSupplier(Supplier supplier) {
+		
+		supplierDao.addSupplier(supplier);
+	}
+	public List<Supplier> getAllSupplier() {
+		
+		return supplierDao.getAllSupplier();
+	}
+	public Supplier getSupplierById(int supplierId) {
+		// TODO Auto-generated method stub
+		return supplierDao.getSupplierById(supplierId);
+	}
+	public void deleteSupplier(int supplierId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

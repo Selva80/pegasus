@@ -1,0 +1,37 @@
+
+May 18, 2017 13:33:13.38 NEW SESSION
+May 18, 2017 13:33:13.38 [11696:16868:0518/133313.375:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+May 18, 2017 13:33:13.82 [11696:16868:0518/133313.820:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+May 18, 2017 13:33:14.80 [11696:16868:0518/133314.807:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+May 18, 2017 13:33:15.33 [11696:16868:0518/133315.335:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+May 18, 2017 13:34:34.99 [11696:16868:0518/133434.995:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+May 18, 2017 14:50:54.34 [11696:11536:0518/145054.344:ERROR:CONSOLE(1434)] "WebSocket connection to 'wss://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/websocket?url=https%3A%2F%2Fwww.google.co.in%2F_%2Fchrome%2Fnewtab%3Frlz%3D1C1GIWA_enIN730IN730%26espv%3D2%26ie%3DUTF-8&nocache=1495099254332' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED", source: chrome-extension://lpeeaghdjmhlakojjcgfdhgcejdaefmi/snapshot/script.main.js (1434)
+May 18, 2017 14:55:06.16 [11696:11536:0518/145506.158:ERROR:CONSOLE(1434)] "WebSocket connection to 'wss://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/websocket?url=https%3A%2F%2Fwww.google.co.in%2F_%2Fchrome%2Fnewtab%3Frlz%3D1C1GIWA_enIN730IN730%26espv%3D2%26ie%3DUTF-8&nocache=1495099506147' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED", source: chrome-extension://lpeeaghdjmhlakojjcgfdhgcejdaefmi/snapshot/script.main.js (1434)
+May 18, 2017 14:55:55.71 [11696:11536:0518/145555.713:ERROR:render_process_host_impl.cc(2094)] Request for unknown Channel-associated interface: device::mojom::ScreenOrientationListener
+May 18, 2017 15:45:24.39 [11696:11536:0518/154524.396:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 18, 2017 15:45:47.34 [11696:11536:0518/154547.348:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 18, 2017 15:46:39.11 [11696:11536:0518/154639.115:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 18, 2017 15:48:13.89 [11696:11536:0518/154813.890:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 18, 2017 15:51:33.89 [11696:11536:0518/155133.890:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+
+May 19, 2017 09:55:01.75 NEW SESSION
+May 19, 2017 09:55:01.75 [5540:4984:0519/095501.746:ERROR:CONSOLE(1434)] "WebSocket connection to 'wss://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/websocket?url=https%3A%2F%2Fwww.google.co.in%2F_%2Fchrome%2Fnewtab%3Frlz%3D1C1GIWA_enIN730IN730%26espv%3D2%26ie%3DUTF-8&nocache=1495167901714' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED", source: chrome-extension://lpeeaghdjmhlakojjcgfdhgcejdaefmi/snapshot/script.main.js (1434)
+
+May 19, 2017 10:29:39.97 NEW SESSION
+May 19, 2017 10:29:39.97 [1672:8968:0519/102939.962:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+
+May 22, 2017 17:03:24.38 NEW SESSION
+May 22, 2017 17:03:24.38 [4536:1252:0522/170324.264:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:03:49.71 [4536:1252:0522/170349.718:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:04:34.42 [4536:1252:0522/170434.420:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:05:59.79 [4536:1252:0522/170559.790:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:09:47.13 [4536:1252:0522/170947.132:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:15:13.51 [4536:1252:0522/171513.518:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+May 22, 2017 17:25:13.52 [4536:1252:0522/172513.528:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+
+May 23, 2017 13:49:09.84 NEW SESSION
+May 23, 2017 13:49:09.85 [6112:8832:0523/134909.837:ERROR:render_process_host_impl.cc(2094)] Request for unknown Channel-associated interface: device::mojom::ScreenOrientationListener
+May 23, 2017 14:18:53.15 [6112:8832:0523/141853.154:ERROR:render_process_host_impl.cc(2094)] Request for unknown Channel-associated interface: device::mojom::ScreenOrientationListener
+
+May 24, 2017 16:50:02.31 NEW SESSION
+May 24, 2017 16:50:02.31 [7996:8984:0524/165002.267:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100

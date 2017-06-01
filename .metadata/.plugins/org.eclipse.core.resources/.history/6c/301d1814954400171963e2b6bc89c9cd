@@ -1,0 +1,18 @@
+package com.pegasus.Dao;
+
+import java.util.List;
+
+import com.pegasus.model.Supplier;
+
+public interface SupplierDao {
+	public void addSupplier(Supplier supplier);
+
+	public List<Supplier> getAllSupplier();
+
+	public Supplier getSupplierById(int supplierId);
+
+	public void deleteSupplier(int supplierId);
+
+	
+
+}

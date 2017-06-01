@@ -1,0 +1,11 @@
+package com.pegasus.Dao;
+
+import java.util.List;
+
+import com.pegasus.model.CartItem;
+
+public interface CartItemDao {
+
+	public void addToCart(CartItem cartItem);
+	public List<CartItem> getCartItems();
+}

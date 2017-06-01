@@ -1,0 +1,199 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"  isELIgnored="false"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+   <%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ include file="Navbar.jsp" %>
+ 
+<html>
+<head>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    	var searchCondition = '${searchCondition}';
+        $('.table').DataTable({
+          "lengthMenu" : [[7,9,11,-1],[7,9,11,"ALL"]] ,
+          "oSearch" : {
+        	  "sSearch" : searchCondition
+        	  
+          }
+        }); 
+    }); 
+</script>
+ 
+
+
+</head>
+<body >
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div  >
+<div class="container" >
+    <div class="row col-md-12 col-md-offset-0 custyle"  >
+    <table class="table table-striped custab"  id="#table_id">
+      <div class="panel-heading" style="background-color: blue">
+		 <center>       <h3 style="color:white ">Product Details Lists
+		        </h3></center>
+		    </div> 
+    <thead>
+    
+        <tr>
+           
+            <th><big>Product Name</big></th>
+             <th><big>Categories</big></th>
+            <th><big>Product Price</big></th>
+            <th class="text-center"><big>Action</big></th>
+        </tr>
+    </thead>
+    <c:forEach var="p" items="${products}">
+    <tr>
+    	
+    	<td>${p.pname}</td>
+    	<td>${p.category.categoryDetails}</td>
+    	<td>${p.price}</td>
+    	<url:url value="/all/product/allviewproduct/${p.pid }" var="url"></url:url>
+    	<url:url value="/all/product/deleteproduct/${p.pid }" var="url2"></url:url>
+    	<url:url value="/all/product/updateProductById/${p.pid }" var="url3"></url:url>
+    	<td class="text-center">
+    	<a class='btn btn-info btn-xs'  href="${url}"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-info-sign"></span> Info</a> 
+    	<a href="${url2}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+    	<a href="${url3}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span> edit</a>
+    	</td>
+    </tr>
+    <div class="modal fade" id="myModal" role="dialog">
+ <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+<div class="container">
+		
+    <div class="row col-md-5 col-md-offset-0 custyle">
+    <div class="panel panel-primary">
+<div class="panel-heading">
+		        <h3>Product Details of ${p.pname}
+		        </h3>
+		    </div>
+    <table class="table table-striped custab" >
+    
+    <tr>
+    <th class="sel">Product Id</th>
+    <td>${product.pid }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Name</th>
+    <td>${product.pname }</td>
+    </tr>
+    <tr>
+    <th class="sel">Image</th>
+    <td>
+    <div id="myCarousel" class="carousel slide gallery2" data-ride="carousel">
+ 
+    <div class="carousel-inner gallery">
+    <div class="item active ">
+    <div ><img src="${pageContext.request.contextPath }/resources/images/product/${product.pid}_0.png"></div>
+    </div>
+    <div class="item ">
+    <div><img src="${pageContext.request.contextPath }/resources/images/product/${product.pid}_1.png"></div>
+    </div>
+    <div class="item ">
+    <div ><img src="${pageContext.request.contextPath }/resources/images/product/${product.pid}_2.png"></div>
+    </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+    </td>
+    </tr>
+    <tr>
+    <th class="sel">Product Description</th>
+    <td colspan="2">${product.pdesc }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Manufacturer</th>
+    <td>${product.manufacture }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product In Stock</th>
+    <td>${product.inStock }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Price per unit</th>
+    <td>${product.price }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Weight</th>
+    <td>${product.pweight }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Warranty</th>
+    <td>${product.pWarranty }</td>
+    </tr>
+    <tr>
+    <th class="sel">Product Colour</th>
+    <td>${product.pColor }</td>
+    </tr>
+    
+    <tr>
+    <th class="sel">Product Category</th>
+    <td>${category.categoryDetails }</td>
+    </tr>
+    
+    
+    
+    
+   
+    </table>
+    <url:url value="/all/product/addProduct" var="url1"></url:url>
+<form:form  action="${url1}"  method="post">
+   <button type="submit"  class="btn btn-primary btn-block login-button">Add a new Product</button>
+    </form:form>
+    <br>
+    <url:url value="/all/product/productList" var="url2"></url:url>
+<form:form  action="${url2}" method="post">
+   <button type="submit"  class="btn btn-primary btn-block login-button">View all Products</button>
+    </form:form>
+    <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+   
+    </div>
+    </div>
+    </div>
+</div>
+    </c:forEach>
+    </table>
+    
+    </div>
+    </div>
+    </div>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+<%@ include file="viewProduct.jsp" %>
+<%@ include file="footer.jsp" %>
+</html>

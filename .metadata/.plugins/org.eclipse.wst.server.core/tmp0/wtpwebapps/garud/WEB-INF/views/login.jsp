@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<%@ include file="header.jsp" %>
+
+
+    <head>
+
+        
+        
+
+        
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/resources/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+            <div class="inner-bg">
+                <div class="container card">
+                    
+                    <div class="row card" >
+                        
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			
+                        		
+                        		<h3 style="color:blue">${registrationSuccess }</h3>
+                        		<h3 style="color:red">${ error}</h3>
+                        		<h3 style="color:blue ">${logout }</h3>
+                        		
+                        		</div>
+                        		
+                            </div>
+                            
+   
+        <div class="col-md-12 ">
+            <div class="well login-box">
+                <form action="<c:url value="j_spring_security_check"></c:url>"method="post" >
+                    <legend>Login</legend>
+                    <div class="form-group">
+                        <label for="j_username"> Username</label>
+                        <input name="j_username"  placeholder=" Username" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="j_password">Password</label>
+                        <input name="j_password"  placeholder="Password" type="password" class="form-control" />
+                    </div>
+                    <div class="form-group text-center">
+                        
+                        <input type="submit" class="btn btn-success btn-login-submit" value="Login" />
+                        <button class="btn btn-danger btn-cancel-action">Cancel</button>
+                    </div>
+                    new to Pegasus ?.....<url:url var="url" value="/registerform"></url:url><a href="${url }">Sign up</a> 
+                </form>
+            </div>
+          
+        </div>
+    </div>
+</div>
+                        </div>
+                    
+                    <div class="row ">
+                        <div class="col-sm-6 col-sm-offset-4 social-login">
+                        	<h3>...or login with:</h3>
+                        	<div class="social-login-buttons">
+	                        	<a class="btn btn-primary" href="#">
+	                        		<i class="fa fa-facebook"></i> Facebook
+	                        	</a>
+	                        	<a class="btn btn-info" href="#">
+	                        		<i class="fa fa-twitter"></i> Twitter
+	                        	</a>
+	                        	<a class="btn btn-danger" href="#">
+	                        		<i class="fa fa-google-plus"></i> Google Plus
+	                        	</a>
+                        	</div>
+                        </div>
+                    </div>
+                
+            
+            
+        
+
+
+        <!-- Javascript -->
+        
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    </body>
+    <%@ include file="buy.jsp" %>
+<%@ include file="footer.jsp" %>
+</html>

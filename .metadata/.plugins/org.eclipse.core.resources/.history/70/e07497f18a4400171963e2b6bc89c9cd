@@ -1,0 +1,20 @@
+package com.pegasus.serviceImp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pegasus.Dao.SupplierDao;
+import com.pegasus.model.Supplier;
+import com.pegasus.service.SupplierService;
+
+@Service
+public class SupplierServiceImp implements SupplierService {
+	
+	@Autowired
+	 private SupplierDao supplierDao;
+	public void addSupplier(Supplier supplier) {
+		
+
+	}
+
+}

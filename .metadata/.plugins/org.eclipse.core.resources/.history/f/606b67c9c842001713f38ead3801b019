@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="header.jsp" %>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./resources/css/showProduct1.css">
+</head>
+<body>
+<div class="fullwidth">
+  
+  <div class="gallery">
+    <c:forEach var="pl" items="${productList}">
+    <figure class="item">
+      <div class="img-wrap"><img src="${pageContext.request.contextPath }/resources/images/product/${product.pid}_0.png"></div>
+      <figcaption class="caption">
+          <h3>Luminor Marina 1950<br/>3 days automatic ACCIAIO</h3>
+          <a class="btn-buy" href="#">Buy</a>
+          <a class="btn-details" href="#">See details</a>
+      </figcaption>
+    </figure>
+    
+    </c:forEach>
+   
+    
+  </div>
+  
+</div>
+<%@ include file="showProduct2.jsp" %>
+</body>
+<%@ include file="footer.jsp" %>
+</html>

@@ -1,0 +1,8 @@
+package com.pegasus.service;
+
+import com.pegasus.model.Supplier;
+
+public interface SupplierService {
+
+	public void addSupplier(Supplier supplier);
+}

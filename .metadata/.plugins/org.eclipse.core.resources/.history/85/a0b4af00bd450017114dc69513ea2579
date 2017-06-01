@@ -1,0 +1,43 @@
+package com.pegasus.DaoImp;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.pegasus.Dao.CartItemDao;
+import com.pegasus.model.CartItem;
+
+@Repository
+public class CartItemDaoImp implements CartItemDao
+{
+	@Autowired
+	 private SessionFactory sessionFactory;
+	
+	public void addToCart(CartItem cartItem) {
+		Session session=sessionFactory.openSession();
+		session.save(cartItem);
+		session.flush();
+		session.close();
+		
+	}
+
+	public List<CartItem> getCartItems() {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from CartItem");
+		List<CartItem> cartList=	query.list();
+		session.close();
+		return cartList;
+	}
+		
+	public String fetchCartItemsByuserIdByJson(int userId) {
+		List<CartItem> cartitemlist = sessionFactory.getCurrentSession().createQuery("from CartItems where userId = "+userId+" and flag = 'N'").getResultList();
+		Gson g = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String cilist = g.toJson(cartitemlist);
+		return cilist;
+	}
+
+}

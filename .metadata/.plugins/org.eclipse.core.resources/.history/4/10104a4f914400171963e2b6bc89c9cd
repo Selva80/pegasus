@@ -1,0 +1,8 @@
+package com.pegasus.Dao;
+
+import com.pegasus.model.Supplier;
+
+public interface SupplierDao {
+	public void addSupplier(Supplier supplier);
+
+}
